@@ -1,0 +1,58 @@
+% General stuff.  The idea is that this preample can also be used to
+% compile each chapter separately.
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{ntheorem}
+\usepackage{amsmath}[ntheorem]
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{thmtools}
+
+\input{notation.tex}
+
+\usepackage[table]{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{todonotes}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{cleveref}
+
+\usepackage{couriers}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\input{futhark-listings.tex}
+
+% Teach cleveref about listings.
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[chapter]
+
+% Tikz stuff
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{chains}
+\usetikzlibrary{arrows}
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{intersections}
+\usetikzlibrary{cd}
+\usetikzlibrary{fit}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+
+\setsecnumdepth{subsubsection}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:
