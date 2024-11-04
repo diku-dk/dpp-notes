@@ -1,0 +1,37 @@
+\chapter{Cost Models}
+
+When analysing the performance of algorithms, we do so not by
+implementing them on some concrete machine and measuring their
+performance, but rather by mathematically quantifying how many
+``steps'' they need to finish. In your previous studies, you may have
+used an intuitive notion of what a ``step'' is, such as counting
+program statements or arithmetic operations. When analysing parallel
+algorithms, we need more precision, since we are not just interested
+in the total amount of work, but also the nature of the work---i.e.,
+whether it is parallel.
+
+\begin{definition}[Cost model]
+  A mathematical model used for algorithmic analysis that defines the
+  cost of various operations in some specified language. May contain
+  one or more \emph{cost measures}.
+\end{definition}
+
+\begin{definition}[Cost measure]
+  A (usually) discrete measure for the cost of a computation along
+  some axis, such as sequential work, total work, or space usage.
+\end{definition}
+
+\begin{definition}[Work]
+  The total amount of steps in an execution.
+\end{definition}
+
+\begin{definition}[Span/depth]
+  The length of the longest sequential dependency chain in an
+  execution.
+\end{definition}
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "dpp-notes"
+%%% End:
