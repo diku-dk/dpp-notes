@@ -1,5 +1,36 @@
 \chapter{Deterministic Parallel Programming}
 
+Modern computers have become ever more parallel, and this trend will
+continue in the future. The reasons are ultimately related to
+fundamental physical constraints---the speed of information is limited
+by the speed of light (and the speed of electrons in silicon is lower
+still), and transistors cannot change their state more than ever so
+often. Instead of increasing the clock frequency, processor designers
+therefore increase parallelism, and today even single-chip processors
+may have hundreds of cores.
+
+Further, often called \emph{accelerators}, have also become popular
+because they tend to provide more computational throughput for a given
+power or transistor budget.
+
+\begin{definition}[Accelerator]
+  Computer hardware designed to efficiently perform a specific task,
+  typically more efficiently than general-purpose hardware.
+\end{definition}
+
+Some accelerators are extremely limited, and perform only completely
+fixed tasks, such as decoding network packets or implementing
+cryptographical operations. Other accelerators, such as most GPUs, are
+fully programmable strictly speaking \emph{general purpose}, in that
+they can perform any computation. However, they perform best on a
+particular subset of problems---in particular those that have ample
+parallelism and a predictable memory access patterns.
+
+Data parallelism is a style of programming that is interesting because
+it mixes human and machine sympathy - meaning they are easy to use and
+easy to execute. The downside is that not all problems are natural to
+express in a data parallel setting.
+
 \begin{definition}[Deterministic program]
   A program that for the same input always produces the same output.
   In particular, it is not sensitive to how (or if) it is executed in
