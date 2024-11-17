@@ -22,13 +22,47 @@ whether it is parallel.
 \end{definition}
 
 \begin{definition}[Work]
-  The total amount of steps in an execution.
+  A cost measure denoting the total amount of steps in an execution.
 \end{definition}
 
 \begin{definition}[Span/depth]
-  The length of the longest sequential dependency chain in an
-  execution.
+  A cost measure denoting the length of the longest sequential
+  dependency chain in an execution.
 \end{definition}
+
+On an infinitely parallel computer, the span of a program is the
+number of sequential steps needed to execute the program. Since
+infinitely parallel computers are somewhat unlikely, we must wonder
+whether the span makes sense on our tragically finite computer. The
+answer is \emph{yes}: we can simulate an infinitely parallel computer
+on a finitely parallel computer with overhead proportional to the
+amount of ``missing'' parallelism. The theoretical justification for
+this is \emph{Brent's Theorem}~\cite{10.1145/321812.321815}.
+
+  \begin{theorem}[Brent's Theorem]
+    Writing $T_{i}$ for the time taken to execute a program on $i$
+    processors,
+  \[
+    \frac{T_{1}}{p} \leq T_{p} \leq T_{\infty} + \frac{T_{1}-T_{\infty}}{p}
+  \]
+  where $p$ is the number of available processors.
+
+  % \begin{proof}
+  %   At level $j$ of the computation DAG there are $M_{j}$ independent
+  %   operations, which can clearly be executed by $p$ processors in
+  %   time
+  % \[
+  %   \Bigl\lceil{\frac{M_{j}}{p}}\Bigr\rceil
+  % \]
+  % Now we have
+  % \begin{align*}
+  %   \frac{T_{1}}{p} &= \frac{\sum _{j} {M_{j}}}{p} & \text{(By definition)} \\
+  %   & \leq \sum _{j} \Bigl\lceil{\frac{M_{j}}{p}}\Bigr\rceil \\
+  %   & \leq \sum _{j} \Bigl\lceil{M_{j}}\Bigr\rceil
+  % \end{align*}
+  % \end{proof}
+
+  \end{theorem}
 
 
 %%% Local Variables:
