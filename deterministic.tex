@@ -26,10 +26,38 @@ they can perform any computation. However, they perform best on a
 particular subset of problems---in particular those that have ample
 parallelism and a predictable memory access patterns.
 
-Data parallelism is a style of programming that is interesting because
-it mixes human and machine sympathy - meaning they are easy to use and
-easy to execute. The downside is that not all problems are natural to
-express in a data parallel setting.
+One challenge of massively parallel computing is that while the human
+mind is good at reasoning about things that occur in sequential order,
+it is bad at reasoning about concurrency. It is telling that the field
+of concurrent programming has such a rich collection of terms for how
+things can go wrong: race condition, deadlock, livelock, starvation,
+priority inversion, et cetera. The key problem is that such programs
+are often nondeterministic, with the outcome of the program depending
+on complex and unpredictable factors about how the computation is
+scheduled.
+
+It is unlikely that we will be able to significantly improve the human
+mind in the near future---indeed, it is little changed from when our
+ancestors chased animals on the tundras---so instead we will have to
+find ways to adapt our modes of programming to what we as humans can
+handle. It is important here to distinguish the notions of concurrency
+and parallelism. These terms have often been used interchangeably, but
+for the purposes of these notes, we will use the following definitions
+(which also largely match modern usage in academia and industry).
+
+\begin{definition}[Concurrency]
+  The use of multiple, possibly interacting, logical flows of control.
+\end{definition}
+
+\begin{definition}[Parallelism]
+  The simultaneous use of multiple processing units, with the goal of
+  speeding up a computation.
+\end{definition}
+
+Parallelism is what we desire, as it allows more efficient use of
+hardware, but we want to avoid the complexities of concurrency.
+Fortunately, high level programming models exist that enable
+deterministic (or nearly deterministic) parallel programming.
 
 \begin{definition}[Deterministic program]
   A program that for the same input always produces the same output.
@@ -37,6 +65,27 @@ express in a data parallel setting.
   parallel.
 \end{definition}
 
+The specific kind of parallelism we will study in DPP is data
+parallelism.
+
+\begin{definition}[Task parallelism]
+  Simultaneously performing \textit{different} operations on potentially
+  different pieces of data.  Often nondeterministic.
+\end{definition}
+
+\begin{definition}[Data parallelism]
+  Simultaneously performing \textit{the same} operation on different
+  pieces of the same data.  Almost always deterministic.
+\end{definition}
+
+Data parallelism as a programming model is interesting because it
+mixes human and machine sympathy - meaning they are easy to reason
+about and easy to execute. The downside is that not all problems are
+natural to express in a data parallel setting.
+
+\begin{definition}[Probstring's Law]
+  Compiler advances double computing power every 18 years.
+\end{definition}
 
 %%% Local Variables:
 %%% mode: LaTeX
